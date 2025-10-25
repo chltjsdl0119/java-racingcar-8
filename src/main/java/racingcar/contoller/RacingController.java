@@ -3,6 +3,7 @@ package racingcar.contoller;
 import racingcar.domain.car.Car;
 import racingcar.domain.car.Cars;
 import racingcar.domain.game.RacingGame;
+import racingcar.domain.policy.WinnerPolicy;
 import racingcar.domain.strategy.MoveStrategy;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -12,11 +13,13 @@ import java.util.List;
 public class RacingController {
     private final InputView inputView;
     private final OutputView outputView;
+    private final WinnerPolicy winnerPolicy;
     private final MoveStrategy moveStrategy;
 
-    public RacingController(InputView inputView, OutputView outputView, MoveStrategy moveStrategy) {
+    public RacingController(InputView inputView, OutputView outputView, WinnerPolicy winnerPolicy, MoveStrategy moveStrategy) {
         this.inputView = inputView;
         this.outputView = outputView;
+        this.winnerPolicy = winnerPolicy;
         this.moveStrategy = moveStrategy;
     }
 
@@ -25,7 +28,7 @@ public class RacingController {
         int tryCount = inputView.readAttemptCount();
 
         Cars cars = Cars.from(carNames);
-        RacingGame game = new RacingGame(cars, tryCount, moveStrategy);
+        RacingGame game = new RacingGame(cars, tryCount, winnerPolicy, moveStrategy);
 
         outputView.printStartMessage();
 
@@ -34,5 +37,8 @@ public class RacingController {
             List<Car> carsInRound = game.play();
             outputView.printRoundResult(carsInRound);
         }
+
+        List<Car> winners = game.getWinners();
+        outputView.printWinners(winners);
     }
 }

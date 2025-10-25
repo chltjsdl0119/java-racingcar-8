@@ -8,12 +8,12 @@
 ## 기능 목록
 
 ### 1. 입력
-- [ ] camp.nextstep.edu.missionutils.Console의 readLine()을 통해 경주할 자동차 이름을 입력받는다.
-- [ ] 자동차 이름은 쉼표(,) 기준으로 구분한다.
-- [ ] 시도할 횟수를 입력받는다.
+- [x] camp.nextstep.edu.missionutils.Console의 readLine()을 통해 경주할 자동차 이름을 입력받는다.
+- [x] 자동차 이름은 쉼표(,) 기준으로 구분한다.
+- [x] 시도할 횟수를 입력받는다.
 
-- [ ] 숫자가 아닌 경우 IllegalArgumentException을 발생시킨다.
-- [ ] 1 이하의 숫자인 경우 IllegalArgumentException을 발생시킨다.
+- [x] 숫자가 아닌 경우 IllegalArgumentException을 발생시킨다.
+- [x] 1 이하의 숫자인 경우 IllegalArgumentException을 발생시킨다.
 
  ### 2. 자동차 생성
 - [ ] 입력받은 이름으로 자동차를 생성한다.

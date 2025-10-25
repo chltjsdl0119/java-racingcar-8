@@ -10,13 +10,14 @@
 ### 1. 입력
 - [ ] camp.nextstep.edu.missionutils.Console의 readLine()을 통해 경주할 자동차 이름을 입력받는다.
 - [ ] 자동차 이름은 쉼표(,) 기준으로 구분한다.
-- [ ] 자동차 이름은 5자 이하로만 입력 가능하다.
-
 - [ ] 시도할 횟수를 입력받는다.
-- [ ] 숫자가 아닌 경우와 1 이하의 숫자인 경우 IllegalArgumentException을 발생시킨다.
 
-### 2. 자동차 생성
+- [ ] 숫자가 아닌 경우 IllegalArgumentException을 발생시킨다.
+- [ ] 1 이하의 숫자인 경우 IllegalArgumentException을 발생시킨다.
+
+ ### 2. 자동차 생성
 - [ ] 입력받은 이름으로 자동차를 생성한다.
+- [ ] 자동차 이름은 1자 이상 5자 이하여야 한다.
 - [ ] 자동차는 이름과 현재 거리를 가진다.
 
 ### 3. 전진 조건 판단
@@ -37,20 +38,37 @@
 
 ## 프로그램 구조
 
-### InputView
-- 입력의 책임을 가진다.
+### View 계층
+- InputView
+  - 사용자 입력을 처리하는 책임.
 
-### OutputView
-- 출력의 책임을 가진다.
+- OutputView
+  - 게임 진행 상황과 최종 결과를 출력하는 책임.
 
-### RacingController
-- 게임 전체 진행의 책임을 가진다.
+### Controller 계층
+- RacingController
+  - 게임의 전체 흐름을 관리한다.
 
-### MoveStrategy
-- 전진 전략 인터페이스.
+### Domain 계층
+- Car
+  - 단일 자동차의 상태(이름, 위치)를 관리한다.
 
-### RandomMoveStrategy
-- 랜덤 전진 전략 책임을 가진다.
+- Cars
+  - 자동차 전체를 관리한다.
+
+- RacingGame
+  - 전체 레이스 진행 관리.
+  - 각 라운드에서 Cars를 이동시키고, 시도 횟수와 게임 종료 상태를 관리한다.
+
+- WinnerPolicy
+  - 우승자를 결정하는 정책 객체.
+  - Cars 상태를 기반으로 최대 위치를 가진 자동차를 찾아 반환한다.
+
+- MoveStrategy (인터페이스)
+  - 자동차 전진 조건을 추상화한 전략.
+
+- RandomMoveStrategy
+  - 랜덤 값 기반으로 이동 여부를 결정하는 구현체.
 
 ## 프로그래밍 요구 사항
 - indent(인덴트, 들여쓰기) depth를 3이 넘지 않도록 구현한다. 2까지만 허용한다.

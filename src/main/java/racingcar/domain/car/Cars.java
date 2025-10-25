@@ -1,5 +1,7 @@
 package racingcar.domain.car;
 
+import racingcar.domain.strategy.MoveStrategy;
+
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,6 +27,10 @@ public class Cars {
 
     public static Cars from(List<String> carNames) {
         return new Cars(carNames);
+    }
+
+    public void moveAll(MoveStrategy moveStrategy) {
+        cars.values().forEach(car -> car.move(moveStrategy));
     }
 
     public List<Car> getAllCars() {

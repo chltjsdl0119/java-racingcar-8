@@ -21,9 +21,9 @@
 - [x] 자동차는 이름과 현재 거리를 가진다.
 
 ### 3. 전진 조건 판단
-- [ ] camp.nextstep.edu.missionutils.Randoms의 pickNumberInRange()를 통해 0~9 사이의 숫자를 무작위로 추출한다.
-- [ ] 4 이상이면 전진한다.
-- [ ] 3 이하라면 멈춘다.
+- [x] camp.nextstep.edu.missionutils.Randoms의 pickNumberInRange()를 통해 0~9 사이의 숫자를 무작위로 추출한다.
+- [x] 4 이상이면 전진한다.
+- [x] 3 이하라면 멈춘다.
 
 ### 4. 경주 시작
 - [ ] 사용자가 입력한 시도 횟수만큼 경주를 반복한다.

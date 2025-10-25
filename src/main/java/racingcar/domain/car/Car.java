@@ -1,5 +1,7 @@
 package racingcar.domain.car;
 
+import racingcar.domain.strategy.MoveStrategy;
+
 public class Car {
     // 자동차는 이름과 현재 거리를 가진다.
     private final String name;
@@ -14,6 +16,13 @@ public class Car {
 
     public static Car from(String name) {
         return new Car(name);
+    }
+
+    public void move(MoveStrategy moveStrategy) {
+        // 3 이하라면 멈추고, 4 이상이면 전진한다.
+        if (moveStrategy.isMovable()) {
+            position.move();
+        }
     }
 
     public String getName() {
